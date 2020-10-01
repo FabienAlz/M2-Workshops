@@ -16,8 +16,11 @@ let driver = new webdriver.Builder()
     .build();
 
 
-
-
+    driver.get('http://localhost:3000/');
+    driver.findElement(By.linkText("Create new workshop")).click();
+    //driver.then
+    driver.findElement(By.id('name')).sendKeys("test");
+    
 
 var bodyParser = require('body-parser')
 
