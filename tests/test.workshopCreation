@@ -1,0 +1,32 @@
+Feature: TDCDP-6
+    Background: 
+        Je suis connecté en temps que laboratoire
+
+    Scenario: Je crée un atelier valide
+        Given Je suis sur la page "/workshop.html"
+        When J'écris "Liquides durs et soides mous" dans le champ "nom".
+        And J'ecris "Découverte de fluides complexes,gels, matériaux granulaires, ..." dans le champ "description".
+        And Je clique sur le bouton "valider"
+        Then Je suis redirigé vers la page "/"
+
+    Scenario: Je crée un atelier avec le champ "nom" vide
+        Given Je suis sur la page "/workshop.html"
+        When Je laisse le champ "nom" vide.
+        And J'ecris "Découverte de fluides complexes,gels, matériaux granulaires, ..." dans le champ "description".
+        And Je clique sur le bouton "valider"
+        Then le champ "nom" devient rouge et un message "Veuillez compléter ce champ" s'affiche dans une 
+        fenetre qui a une fleche qui pointe vers le champ "nom".
+
+    Scenario: Je crée un atelier avec le champ "description" vide
+        Given Je suis sur la page "/workshop.html"
+        When J'écris "Liquides durs et soides mous" dans le champ "nom".
+        And Je laisse le champ "description" vide.
+        And Je clique sur le bouton "valider"
+        Then le champ "description" devient rouge et un message "Veuillez compléter ce champ" s'affiche dans une 
+        fenetre qui a une fleche qui pointe vers le champ "description".
+
+    Scenario: Je crée un atelier avec les champ "nom" et "description" vide
+        Given Je suis sur la page "/workshop.html"
+        When Je clique sur le bouton "valider" sans remplir de champ.
+        Then les champs "nom" et "description" deviennent rouges et un message "Veuillez compléter ce champ" s'affiche dans une 
+        fenetre qui a une fleche qui pointe vers le champ "nom".

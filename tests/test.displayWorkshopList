@@ -1,0 +1,15 @@
+Feature: TDCDP-6
+    Background: 
+        Je suis connecté en temps que laboratoire
+
+    Scenario: 
+        Given J'ai créé un atelier valide.
+        When Je suis sur la page "/"
+        Then Une liste contenant le nom de l'atelier en gras et sa description sous le nom s'affiche sous le bouton "Créer un atelier".
+
+    Scenario: 
+        Given J'ai créé plusieurs ateliers valides.
+        When Je suis sur la page "/"
+        Then Une liste contenant le nom de l'atelier en gras et sa description sous le nom s'affiche sous le bouton "Créer un atelier"
+        And Il y a un retour chariot avant chaque nom d'atelier
+

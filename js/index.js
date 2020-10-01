@@ -4,9 +4,25 @@ const app = express()
 const InMemoryWorkshop = require("./inMemoryWorkshop")
 const path = require("path")
 const ejs = require('ejs')
+
+const webdriver = require('selenium-webdriver');
+const chrome = require('selenium-webdriver/chrome');
+const firefox = require('selenium-webdriver/firefox');
+ 
+let driver = new webdriver.Builder()
+    .forBrowser('firefox')
+    .setChromeOptions(/* ... */)
+    .setFirefoxOptions(/* ... */)
+    .build();
+
+
+
+
+
 var bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }))
+
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
