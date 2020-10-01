@@ -3,29 +3,11 @@ const express = require('express')
 const app = express()
 const InMemoryWorkshop = require("./inMemoryWorkshop")
 const path = require("path")
-const ejs = require('ejs')
-
-const webdriver = require('selenium-webdriver');
-const chrome = require('selenium-webdriver/chrome');
-const firefox = require('selenium-webdriver/firefox');
- 
-let driver = new webdriver.Builder()
-    .forBrowser('firefox')
-    .setChromeOptions(/* ... */)
-    .setFirefoxOptions(/* ... */)
-    .build();
-
-
-    driver.get('http://localhost:3000/');
-    driver.findElement(By.linkText("Create new workshop")).click();
-    //driver.then
-    driver.findElement(By.id('name')).sendKeys("test");
-    
+const ejs = require('ejs') 
 
 var bodyParser = require('body-parser')
 
 app.use(bodyParser.urlencoded({ extended: false }))
-
 
 // set the view engine to ejs
 app.set('view engine', 'ejs');
