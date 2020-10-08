@@ -1,10 +1,11 @@
 Feature: TDCDP-6
     Background: 
         Je suis connecté en temps que laboratoire
+        Je clique sur le bouton "Créer un atelier"
 
     Scenario: Je crée un atelier valide
         Given Je suis sur la page "/workshop.html"
-        When J'écris "Liquides durs et soides mous" dans le champ "nom".
+        When J'écris "Liquides durs et solides mous" dans le champ "nom".
         And J'ecris "Découverte de fluides complexes,gels, matériaux granulaires, ..." dans le champ "description".
         And Je clique sur le bouton "valider"
         Then Je suis redirigé vers la page "/"
@@ -30,3 +31,8 @@ Feature: TDCDP-6
         When Je clique sur le bouton "valider" sans remplir de champ.
         Then les champs "nom" et "description" deviennent rouges et un message "Veuillez compléter ce champ" s'affiche dans une 
         fenetre qui a une fleche qui pointe vers le champ "nom".
+
+    Scenario: Je clique sur créer un atelier puis j'annule mon action
+        Given Je suis sur la page "/workshop.html"
+        When Je clique sur le bouton "annuler" sans remplir de champ.
+        Then je suis redirigé vers l'index, aucun nouvel atelier n'est ajouté à la liste.
